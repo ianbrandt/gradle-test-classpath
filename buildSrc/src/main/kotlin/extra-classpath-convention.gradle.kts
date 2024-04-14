@@ -1,9 +1,12 @@
-tasks.withType<Test>().configureEach {
+afterEvaluate {
 
-    val projectDirectory = layout.projectDirectory
+    tasks.withType<Test>().configureEach {
 
-    val extraDirectory = projectDirectory.dir("src/main/extra")
+        val projectDirectory = layout.projectDirectory
 
-    // Append the extra source directory to the classpath.
-    classpath += files(extraDirectory)
+        val extraDirectory = projectDirectory.dir("src/main/extra")
+
+        // Append the extra source directory to the classpath.
+        classpath += files(extraDirectory)
+    }
 }
